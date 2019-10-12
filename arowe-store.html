@@ -80,6 +80,12 @@
 		tr {
 			margin-top: 15px;
 		}
+		#paypal-button-container {
+			height: 200px;
+			width: 400px;
+			margin-left: 15px;
+			margin-top: 15px;
+		}
 	</style>
 </head>
 <body>
@@ -97,22 +103,62 @@
 	<center>
 		<br>
 		<h3 class="portionTitle">s t o r e</h3>
-		<p class="portionText" style="font-size: 10px;">(work in progress)</p>
+		<p class="portionText" style="font-size: 10px;">(not yet functional)</p>
 	</center>
 	<center>
 		<table id="beatStore">
 			<th>
 				<tr>
-					<td><h3 class="beatTitle">s a k u r a</h3></td>
+					<td>
+						<h3 class="beatTitle">s a k u r a</h3>
+					</td>
 					<td><iframe class="beat" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/693703786&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></td>
 				</tr>
 				<tr>
-					<td><h3 class="beatTitle">w e d n e s d a y</h3></td>
+					<td>
+						<h3 class="beatTitle">w e d n e s d a y</h3>
+					</td>
 					<td><iframe class="beat" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/689679571&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></td>
 				</tr>
 				<tr>
-					<td><h3 class="beatTitle">c o f f e e h o u s e</h3></td>
+					<td>
+						<h3 class="beatTitle">c o f f e e h o u s e</h3>
+					</td>
 					<td><iframe class="beat" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/676042853&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></td>
+				</tr>
+				<tr>
+					<td>
+						<h3 class="beatTitle">b u y n o w</h3>
+					</td>
+					<td>
+						<div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+<script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'black',
+            layout: 'vertical',
+            label: 'buynow',
+            
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '1'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+    }).render('#paypal-button-container');
+</script>
+					</td>
 				</tr>
 		</table>
 	</center>
