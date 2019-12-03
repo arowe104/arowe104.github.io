@@ -47,11 +47,13 @@
 		</div>
 		<script type="text/javascript">
 
+			// Initialize variables
 			var roulette = document.getElementById("roulette");
 			var title = document.getElementById("title");
 			var songs = ["alliwant", "lastchristmas", "itsbeginning"];
 			var randomNumber;
 
+			// Roulette click function
 			roulette.addEventListener("click", function()
 			{
 
@@ -65,8 +67,10 @@
 				document.getElementById("lastchristmas").load();
 				document.getElementById("itsbeginning").load();
 				
+				// Adds click CSS effect
 				title.style.color = "#8f8f8f";
 
+				
 				randomNumber = Math.round(Math.random() * 2);
 
 				console.log("Song Number: " + randomNumber);
