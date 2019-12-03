@@ -11,6 +11,7 @@
 			height: 250px;
 			background-color: red;
 			border-radius: 5px;
+			border-style: solid;
 		}
 		#roulette:hover {
 			transition: 0.2s;
@@ -21,7 +22,15 @@
 			font-family: Arial;
 			color: white;
 			font-weight: 100;
-			padding-top: 40%;
+			padding-top: 25%;
+		}
+		#instruc {
+			font-family: Arial;
+			color: white;
+		}
+		#header {
+			font-family: Arial;
+			color: white;
 		}
 	</style>
 </head>
@@ -42,42 +51,45 @@
 	</center>
 
 	<center>
+		<h1 id="header">Christmas Roulette!</h1>
+		<h3 id="instruc">Click "Roll!" to get a random christmas song played for you!</h3><br>
+
 		<div id="roulette">
 			<h1 id="title">Roll!</h1>
 		</div>
+
 		<script type="text/javascript">
 
 			// Initialize variables
 			var roulette = document.getElementById("roulette");
 			var title = document.getElementById("title");
 			var songs = ["alliwant", "lastchristmas", "itsbeginning"];
-			var randomNumber;
+			var randomNumber = 0;
 
 			// Roulette click function
 			roulette.addEventListener("click", function()
 			{
 
 				// Stops all audio
-				document.getElementById("alliwant").pause();
-				document.getElementById("lastchristmas").pause();
-				document.getElementById("itsbeginning").pause();
+				document.getElementById(songs[randomNumber]).pause();
 
 				// Starts all audio from beginning
-				document.getElementById("alliwant").load();
-				document.getElementById("lastchristmas").load();
-				document.getElementById("itsbeginning").load();
+				document.getElementById(songs[randomNumber]).load();
 				
 				// Adds click CSS effect
 				title.style.color = "#8f8f8f";
 
-				
+				// Everything else
 				randomNumber = Math.round(Math.random() * 2);
 
 				console.log("Song Number: " + randomNumber);
 
 				console.log("Song Name: " + songs[randomNumber]);
 
+				// Plays specified song
 				document.getElementById(songs[randomNumber]).play()
+
+				// Returns CSS effect to normal
 				setTimeout(function () {
 					title.style.color = "white";
 				}, 200);
