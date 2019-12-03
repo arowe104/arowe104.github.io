@@ -3,10 +3,13 @@
 <head>
 	<title>Song Roulette</title>
 	<style type="text/css">
+		html {
+			background-color: green;
+		}
 		#roulette {
 			width: 250px;
 			height: 250px;
-			background-color: green;
+			background-color: red;
 			border-radius: 5px;
 		}
 		#roulette:hover {
@@ -16,12 +19,28 @@
 		}
 		#title {
 			font-family: Arial;
+			color: white;
 			font-weight: 100;
 			padding-top: 40%;
 		}
 	</style>
 </head>
 <body>
+
+	<center>
+		<audio id="alliwant">
+			<source src="alliwant.mp3" type="audio/mpeg">
+		</audio>
+
+		<audio id="lastchristmas">
+			<source src="lastchristmas.mp3" type="audio/mpeg">
+		</audio>
+
+		<audio id="itsbeginning">
+			<source src="itsbeginning.mp3" type="audio/mpeg">
+		</audio>
+	</center>
+
 	<center>
 		<div id="roulette">
 			<h1 id="title">Roll!</h1>
@@ -29,24 +48,41 @@
 		<script type="text/javascript">
 
 			var roulette = document.getElementById("roulette");
-			var title = document.getElementById("title")
+			var title = document.getElementById("title");
+			var songs = ["alliwant", "lastchristmas", "itsbeginning"];
 			var randomNumber;
 
 			roulette.addEventListener("click", function()
 			{
+
+				// Stops all audio
+				document.getElementById("alliwant").pause();
+				document.getElementById("lastchristmas").pause();
+				document.getElementById("itsbeginning").pause();
+
+				// Starts all audio from beginning
+				document.getElementById("alliwant").load();
+				document.getElementById("lastchristmas").load();
+				document.getElementById("itsbeginning").load();
 				
 				title.style.color = "#8f8f8f";
 
-				randomNumber = Math.round(Math.random() * 3);
+				randomNumber = Math.round(Math.random() * 2);
 
 				console.log("Song Number: " + randomNumber);
 
-				setTimeout(function () {
-					title.style.color = "black";
-				}, 200);
+				console.log("Song Name: " + songs[randomNumber]);
 
+				document.getElementById(songs[randomNumber]).play()
+				setTimeout(function () {
+					title.style.color = "white";
+				}, 200);
+				
 			})
+
 		</script>
 	</center>
+
+
 </body>
 </html>
