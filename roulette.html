@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Song Roulette</title>
+	<style type="text/css">
+		#roulette {
+			width: 250px;
+			height: 250px;
+			background-color: green;
+			border-radius: 5px;
+		}
+		#roulette:hover {
+			transition: 0.2s;
+			width: 275px;
+			height: 275px;
+		}
+		#title {
+			font-family: Arial;
+			font-weight: 100;
+			padding-top: 40%;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<div id="roulette">
+			<h1 id="title">Roll!</h1>
+		</div>
+		<script type="text/javascript">
+
+			var roulette = document.getElementById("roulette");
+			var title = document.getElementById("title")
+			var randomNumber;
+
+			roulette.addEventListener("click", function()
+			{
+				
+				title.style.color = "#8f8f8f";
+
+				randomNumber = Math.round(Math.random() * 3);
+
+				console.log("Song Number: " + randomNumber);
+
+				setTimeout(function () {
+					title.style.color = "black";
+				}, 200);
+
+			})
+		</script>
+	</center>
+</body>
+</html>

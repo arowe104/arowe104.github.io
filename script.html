@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Song Roulette</title>
+
+	<!-- element
+
+on click get a random number
+
+set each number to a song
+
+play the song -->
+
+	<style type="text/css">
+
+		#fish {
+			width: 400px;
+			height: 400px;
+			background-color: green;
+			border-radius: 15px;
+			border-style: solid;
+		}
+		#fish:hover {
+			width: 420px;
+			height: 420px;
+			transition: 0.3s;
+			transition-timing-function: ease;
+		}
+
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var fish = document.getElementById("fish")
+
+
+		var randomNumber;
+
+		fishes.addEventListener("click", function()
+			{
+
+				randomNumber = Math.round(Math.random() * 4)
+
+				fish.style.backgroundImage = fishes[randomNumber];
+
+				console.log("randomNumber")
+			})
+	</script>
+
+	<center>
+		<h1 style="font-family: Arial; font-weight: 100;">Roll!</h1>
+		<div id="fish"></div>
+	</center>
+
+</body>
+</html>
