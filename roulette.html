@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,8 @@
 			background-color: red;
 			border-radius: 5px;
 			border-style: solid;
+			background-size: cover;
+			background-repeat: no-repeat;
 		}
 		#roulette:hover {
 			transition: 0.2s;
@@ -59,6 +62,7 @@
 			var roulette = document.getElementById("roulette");
 			var title = document.getElementById("title");
 			var songs = ["alliwant", "lastchristmas", "itsbeginning", "bellrock", "rockinaround", "hanukah"];
+			var imgs = ["alliwant.jpg", "lastchristmas.jpg", "itsbeginning.jpg", "bellrock.jpg", "rockinaround.jpg", "hanukah.jpg"];
 			var randomNumber = 0;
 
 			// Roulette click function
@@ -84,6 +88,11 @@
 				// Plays specified song
 				document.getElementById(songs[randomNumber]).play()
 
+				document.getElementById("title").innerHTML = "";
+
+				//Changes background image
+				roulette.style.backgroundImage = "url(" + imgs[randomNumber] + ")";
+
 				// Returns CSS effect to normal
 				setTimeout(function () {
 					title.style.color = "white";
@@ -93,7 +102,6 @@
 
 		</script>
 	</center>
-
 
 </body>
 </html>
