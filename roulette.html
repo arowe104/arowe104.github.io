@@ -37,17 +37,12 @@
 <body>
 
 	<center>
-		<audio id="alliwant">
-			<source src="alliwant.mp3" type="audio/mpeg">
-		</audio>
-
-		<audio id="lastchristmas">
-			<source src="lastchristmas.mp3" type="audio/mpeg">
-		</audio>
-
-		<audio id="itsbeginning">
-			<source src="itsbeginning.mp3" type="audio/mpeg">
-		</audio>
+		<audio id="alliwant"><source src="alliwant.mp3" type="audio/mpeg"></audio>
+		<audio id="lastchristmas"><source src="lastchristmas.mp3" type="audio/mpeg"></audio>
+		<audio id="itsbeginning"><source src="itsbeginning.mp3" type="audio/mpeg"></audio>
+		<audio id="bellrock"><source src="bellrock.mp3" type="audio/mpeg"></audio>
+		<audio id="rockinaround"><source src="rockinaround.mp3" type="audio/mpeg"></audio>
+		<audio id="hanukah"><source src="hanukah.mp3" type="audio/mpeg"></audio>
 	</center>
 
 	<center>
@@ -63,7 +58,7 @@
 			// Initialize variables
 			var roulette = document.getElementById("roulette");
 			var title = document.getElementById("title");
-			var songs = ["alliwant", "lastchristmas", "itsbeginning"];
+			var songs = ["alliwant", "lastchristmas", "itsbeginning", "bellrock", "rockinaround", "hanukah"];
 			var randomNumber = 0;
 
 			// Roulette click function
@@ -80,7 +75,7 @@
 				title.style.color = "#8f8f8f";
 
 				// Everything else
-				randomNumber = Math.round(Math.random() * 2);
+				randomNumber = Math.round(Math.random() * 5);
 
 				console.log("Song Number: " + randomNumber);
 
