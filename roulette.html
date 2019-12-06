@@ -15,6 +15,7 @@
 			border-style: solid;
 			background-size: cover;
 			background-repeat: no-repeat;
+			margin-top: 15px;
 		}
 		#roulette:hover {
 			transition: 0.2s;
@@ -60,6 +61,22 @@
 		#slider:hover {
   			opacity: 1; /* Fully shown on mouse-over */
 		}
+		#home {
+			position: absolute;
+			left: 5px;
+			top: 5px;
+			width: 5%;
+			height: 5%;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: url(home.png);
+			filter: grayscale(100%);
+		}
+		#home:hover {
+			transition: 0.2s;
+			width: 6%;
+			height: 6%;
+		}
 	</style>
 </head>
 <body>
@@ -77,13 +94,22 @@
 		<h1 id="header">Christmas Roulette!</h1>
 		<h3 id="instruc">Click "Roll!" to get a random christmas song played for you!</h3><br>
 
-		<div id="slide">
+		<!-- <div id="slide">
 			<input type="range" min="1" max="50" value="25" id="slider">
-		</div><br>
+		</div><br> -->
+
+		<!-- <input class="button" type="file" name="song" accept="audio/*">
+		<input type="submit"> -->
 
 		<div id="roulette">
 			<h1 id="title">Roll!</h1>
 		</div>
+
+		</center>
+			<a href="https://arowe104.github.io">
+				<div id="home"></div>
+			</a>
+		<center>
 
 		<script type="text/javascript">
 
