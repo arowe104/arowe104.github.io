@@ -37,30 +37,6 @@
 			font-family: Arial;
 			color: white;
 		}
-		#slider {
-			-webkit-appearance: none;  /* Override default CSS styles */
-			appearance: none;
-			width: 100%; /* Full-width */
-			height: 25px; /* Specified height */
-			background: #d3d3d3; /* Grey background */
-			outline: none; /* Remove outline */
-			opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-			-webkit-transition: .2s; /* 0.2 seconds transition on hover */
-			transition: opacity .2s;
-			width: 30%;
-			margin-top: 0px;
-		}
-		#slider::-webkit-slider-thumb {
-			-webkit-appearance: none; /* Override default look */
-			appearance: none;
-			width: 25px; /* Set a specific slider handle width */
-			height: 25px; /* Slider handle height */
-			background: #4CAF50; /* Green background */
-			cursor: pointer; /* Cursor on hover */
-		}
-		#slider:hover {
-  			opacity: 1; /* Fully shown on mouse-over */
-		}
 		#home {
 			position: absolute;
 			left: 5px;
@@ -77,6 +53,11 @@
 			width: 6%;
 			height: 6%;
 		}
+		#upfile1 {
+			width: 50px;
+			height: 50px;
+		}
+		
 	</style>
 </head>
 <body>
@@ -94,16 +75,12 @@
 		<h1 id="header">Christmas Roulette!</h1>
 		<h3 id="instruc">Click "Roll!" to get a random christmas song played for you!</h3><br>
 
-		<!-- <div id="slide">
-			<input type="range" min="1" max="50" value="25" id="slider">
-		</div><br> -->
-
-		<!-- <input class="button" type="file" name="song" accept="audio/*">
-		<input type="submit"> -->
-
 		<div id="roulette">
 			<h1 id="title">Roll!</h1>
-		</div>
+		</div><br>
+
+		<!-- <img src="upload.png" id="upfile1" style="cursor:pointer" />
+		<input type="file" id="file1"  name="file1" style="display:none" /> -->
 
 		</center>
 			<a href="https://arowe104.github.io">
@@ -116,15 +93,17 @@
 			// Initialize variables
 			var roulette = document.getElementById("roulette");
 			var title = document.getElementById("title");
-			var slider = document.getElementById("slider");
 			var songs = ["alliwant", "lastchristmas", "itsbeginning", "bellrock", "rockinaround", "hanukah"];
 			var imgs = ["alliwant.jpg", "lastchristmas.jpg", "itsbeginning.jpg", "bellrock.jpg", "rockinaround.jpg", "hanukah.jpg"];
+			var uploaded = ["none"];
 			var randomNumber = 0;
+			var songsNum = 5;
 
-			// Slider Function
-			slider.addEventListener("input", () => {
-				console.log(slider.value);
-			})
+			// Add item to array
+			// var addItem = function() {
+			// 	console.log("Added Item")
+			// 	uploaded.push(document.getElementById("btn").value);
+			// }
 
 			// Roulette click function
 			roulette.addEventListener("click", function()
@@ -140,7 +119,7 @@
 				title.style.color = "#8f8f8f";
 
 				// Everything else
-				randomNumber = Math.round(Math.random() * 5);
+				randomNumber = Math.round(Math.random() * songsNum);
 
 				// Logs the song number and name
 				console.log("Song Number: " + randomNumber);
