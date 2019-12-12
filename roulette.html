@@ -5,28 +5,60 @@
 	<title>Song Roulette</title>
 	<style type="text/css">
 		html {
-			background-color: green;
+			background-image: url(christmastree.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
 		}
 		#roulette {
-			width: 250px;
-			height: 250px;
-			background-color: red;
+			width: 400px;
+			height: 400px;
+			background-image: linear-gradient(to right, #076300  , #0dbf00);
 			border-radius: 5px;
 			border-style: solid;
 			background-size: cover;
 			background-repeat: no-repeat;
 			margin-top: 15px;
+			float:left; 
+			display:inline;
+			margin-right: 15px;
+			margin-left: 34%;
 		}
 		#roulette:hover {
 			transition: 0.2s;
-			width: 275px;
-			height: 275px;
+			width: 425px;
+			height: 425px;
+			margin-left: 33%;
+		}
+		#lyricsWrapper {
+			width: 400px;
+			height: 400px;
+			background-image: linear-gradient(to right, #0dbf00 , #076300);
+			border-radius: 5px;
+			border-style: solid;
+			background-size: cover;
+			background-repeat: no-repeat;
+			margin-top: 15px;
+			float:left; 
+			display:inline;
+		}
+		#lyricsWrapper:hover {
+			transition: 0.2s;
+			width: 425px;
+			height: 425px;
 		}
 		#title {
 			font-family: Arial;
 			color: white;
 			font-weight: 100;
 			padding-top: 25%;
+			font-size: 50px;
+		}
+		#lyrics {
+			font-family: Arial;
+			color: white;
+			font-weight: 100;
+			padding-top: 25%;
+			font-size: 50px;
 		}
 		#instruc {
 			font-family: Arial;
@@ -46,7 +78,7 @@
 			background-size: contain;
 			background-repeat: no-repeat;
 			background-image: url(home.png);
-			filter: grayscale(100%);
+			filter: hue-rotate(120deg);
 		}
 		#home:hover {
 			transition: 0.2s;
@@ -57,7 +89,6 @@
 			width: 50px;
 			height: 50px;
 		}
-		
 	</style>
 </head>
 <body>
@@ -75,18 +106,26 @@
 		<h1 id="header">Christmas Roulette!</h1>
 		<h3 id="instruc">Click "Roll!" to get a random christmas song played for you!</h3><br>
 
-		<div id="roulette">
-			<h1 id="title">Roll!</h1>
-		</div><br>
+		<div id="main-wrapper">
+
+			<div id="roulette">
+				<h1 id="title">Roll!</h1>
+			</div>
+
+			<!-- <div id="lyricsWrapper">
+				<h1 id="lyrics">Lyrics!</h1>
+			</div> -->
+
+		</div>
 
 		<!-- <img src="upload.png" id="upfile1" style="cursor:pointer" />
 		<input type="file" id="file1"  name="file1" style="display:none" /> -->
 
-		</center>
+	</center>
 			<a href="https://arowe104.github.io">
 				<div id="home"></div>
 			</a>
-		<center>
+	<center>
 
 		<script type="text/javascript">
 
@@ -99,10 +138,16 @@
 			var randomNumber = 0;
 			var songsNum = 5;
 
-			// Add item to array
-			// var addItem = function() {
-			// 	console.log("Added Item")
-			// 	uploaded.push(document.getElementById("btn").value);
+			// Songs lyrics
+			var alliwantLyrics = ["Oh I don't want a lot for christmas", "There is just one thing I need."]; 
+
+			// Lyric Function
+			// var lyrics = function (song, timing) {
+			// 	setTimeout(function () {
+			// 		document.getElementById("lyrics").innerHTML = alliwantLyrics[1];
+			// 	}, timing)
+
+			// 	document.getElementById("lyrics").innerHTML = alliwantLyrics[0];
 			// }
 
 			// Roulette click function
@@ -123,13 +168,15 @@
 
 				// Logs the song number and name
 				console.log("Song Number: " + randomNumber);
-
 				console.log("Song Name: " + songs[randomNumber]);
 
 				// Plays specified song
 				document.getElementById(songs[randomNumber]).play()
 
 				document.getElementById("title").innerHTML = "";
+
+				// Begins playing lyrics
+				// lyrics(songs[randomNumber] , 2000);
 
 				//Changes background image
 				roulette.style.backgroundImage = "url(" + imgs[randomNumber] + ")";
