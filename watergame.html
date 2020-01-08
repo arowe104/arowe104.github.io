@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>gamingforwater.com</title>
+  </head>
+  <body>
+
+   <canvas id="canvas" width="288" height="512"></canvas>
+   <script data-ad-client="ca-pub-5169628706642849" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+   	
+   	var cvs = document.getElementsByTagName('canvas')[0];
+	var ctx = cvs.getContext("2d");
+
+// load images	
+
+var bird = new Image();
+var bg = new Image();
+var fg = new Image();
+var pipeNorth = new Image();
+var pipeSouth = new Image();
+
+bird.src = "https://shorturl.at/rxZ16";
+//          https://lh3.googleusercontent.com/wjdB5VgpuLSrYQHcW6TcJCgd8txGSJeTgElw7HVWtV686n4IuxAVA6cgpgy2pnlZ96tL1SrUnrHmZmptsD_aiRRMbPlmRKQdIiZ8AgIo0o5VoMuks1fJzrfKrrc7NaeHoNQFiTYH0OsOssFpWrq_kNchg6CfJEBqAFhCwEyCRy4Pe87ubLwls59zLJ9zFFgao031tcPP6NGJE66IYaqf1R-VhjMAcaG8_LmamwkYdzMlETWwTPbRYTsrWGTmWFbKIz857DCpkfIo2R0SDiD-TYzbOE5AfmFoCO7_9NKocbIoQ9Zjd0uZC4YbHo4vl8uWcQWIDLOtIK7cim7E8UQvJM6iXDvxnXMI2peOwCPyezX5NZF78jpjk%20DBJzNdXkk3KlC-wynQbqas3T44nGe3B3YofQDKCgAbcHozUrrOTnPugDwwjF6rUbSfBqCv6ACHov_EDtfBv1RWu_7plKonYRZ6zRZx2_az0USyPV9ONiDKHmDepxuYiKZsGVGk4g4_Io_jsYsOBzfDwim68C6VU5tccclYUK0HbXJF9kahSk-zspipSD-nJCFVx_puVvHxDkRK67Rpi884bNnzO3ZYBIBzemENIUioznltH4vu0UCT3-fF5VcgqYgPWbEiP1xPG1AQai51xgLlyVOyvwHJqCfo3lV0GtkTcdLv8lRfFei08Vgvh9JlWoN1I59ZjFJHZdPM8nZ2qawd9Tz3lZCxncCDPcTbBfS2OAeUoGR0bDyLuuHU=w50-h20-no
+bg.src = "https://shorturl.at/kwJT4";
+//        https://lh3.googleusercontent.com/o1flaYAKT8FSAvavN7yNI50y65WnWMwZV6zLp-GrxTiQZjs3hOiBm7eBy7HBNbxmfzrK1JoqZ-7MSed873AlwAXueje6KDxkyx9nHmCxU3Wca5Spn03MF3Gtfa0O3QKp5Kn5j0rGQDsVMmUHciSxWLnrRx4rUAe1GkgnJV7-rh9PStMnx03rBfmvXs_Z1UV8InV2ha-kzWCHi4y-7k2wglQlkbhDCJCGb_BVglokfm2AgDuBa1MUtemHZ8DNHJHfaS7wwEpEhld76X5nmUtLDUJ9f6dZYriR2WJ_oQB-1eConNcjDmLoAFPxGsDyOTelkkx0lMPrwUP4I20fbzT7XM8HxydJnvFj3TRxCVfknXZzjHXuv_z-_NE%20wy8VRrzY2o2kRZy6IwrrEvBJFfT1whQjP2A6I_Fyus4vUDBr_jPn2nTgSMuU5IqtHKoOZx8M3DztSL1BI6G89zALy38wzRnLakesJ3A5a1WcmJm1kWPz1YNoI5pYAtWHNy9WzJqZnDRbyqS0JXbwxWiKXQWUpERSU52N0hZSNpLUQo17ME7IMg5qfUj89ch8gDPcXLx196Uyvu4Wk-bEgyeGPKN6PSZFb-ilW7ITG1ZHw8wt4MrQtco1-0MwdW65D5FLOdjSLvWALbxW1LCLnuPBKUT3KW690gChGFKsmBYu4l9u4ApCECgcNtzj-Kae1isAqf3On176zrvet40fEynyHbkNFknGcKe8fOvEprY1oWyDRTPriu0c=w2560-h1440-no
+fg.src = "https://shorturl.at/lDEMW";
+pipeNorth.src = "https://shorturl.at/dpAGI";
+pipeSouth.src = "https://shorturl.at/hmp13";
+
+
+// some variables
+
+var gap = 85;
+var constant;
+
+var bX = 10;
+var bY = 150;
+
+var gravity = 1.5;
+
+var score = 0;
+
+// on key down
+
+document.addEventListener("keydown",moveUp);
+
+function moveUp(){
+    bY -= 25;
+}
+
+// pipe coordinates
+
+var pipe = [];
+
+pipe[0] = {
+    x : cvs.width,
+    y : 0
+};
+
+// draw images
+
+function draw(){
+    
+    ctx.drawImage(bg,0,0);
+      
+    for(var i = 0; i < pipe.length; i++){
+        
+        constant = pipeNorth.height+gap;
+        ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
+        ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
+             
+        pipe[i].x--;
+        
+        if( pipe[i].x == 125 ){
+            pipe.push({
+                x : cvs.width,
+                y : Math.floor(Math.random()*pipeNorth.height)-pipeNorth.height
+            }); 
+        }
+
+        // detect collision
+        
+        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
+            location.reload(); // reload the page
+        }
+        
+        if(pipe[i].x == 5){
+            score++;
+        }
+        
+        
+    }
+
+    ctx.drawImage(fg,0,cvs.height - fg.height);
+    
+    ctx.drawImage(bird,bX,bY);
+    
+    bY += gravity;
+    
+    ctx.fillStyle = "#000";
+    ctx.font = "20px Verdana";
+    ctx.fillText("Score : "+score,10,cvs.height-20);
+    
+    requestAnimationFrame(draw);
+    
+}
+
+draw();
+   </script>
+  </body>
+</html>
+
