@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swarm Test</title>
+	<style type="text/css">
+		.dot {
+			width: 25px;
+			height: 25px;
+			border-radius: 50px;
+			background-color: blue;
+			display: inline-block;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function create() {
+			var dot = document.createElement("div");
+			dot.classList.add("dot");
+			dot.style.opacity = "100";
+			dot.style.left = Math.round((Math.random() * 1250)) + "px";
+       		dot.style.top = Math.round((Math.random() * 650)) + "px";
+			document.body.appendChild(dot);
+		}
+		for (var i = 0; i < 100; i = i + 1) {
+        	create();
+   		}
+	</script>
+</body>
+</html>

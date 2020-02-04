@@ -21,13 +21,13 @@
 			float:left; 
 			display:inline;
 			margin-right: 15px;
-			margin-left: 34%;
+			margin-left: 18%;
 		}
 		#roulette:hover {
 			transition: 0.2s;
 			width: 425px;
 			height: 425px;
-			margin-left: 33%;
+			margin-left: 16%;
 		}
 		#lyricsWrapper {
 			width: 400px;
@@ -112,9 +112,9 @@
 				<h1 id="title">Roll!</h1>
 			</div>
 
-			<!-- <div id="lyricsWrapper">
+			<div id="lyricsWrapper">
 				<h1 id="lyrics">Lyrics!</h1>
-			</div> -->
+			</div>
 
 		</div>
 
@@ -137,18 +137,32 @@
 			var uploaded = ["none"];
 			var randomNumber = 0;
 			var songsNum = 5;
+			var arrayNum = songs[randomNumber] + "Lyrics"
 
-			// Songs lyrics
-			var alliwantLyrics = ["Oh I don't want a lot for christmas", "There is just one thing I need."]; 
+			// Songs lyrics & timings
+			var alliwantLyrics = ["Oh I don't want a lot for christmas", "There is just one thing I need", "I don't care about the presents", "Underneath the Christmas Tree"];
+			var alliwantTiming = [1000, 2000, 1000]
 
 			// Lyric Function
-			// var lyrics = function (song, timing) {
-			// 	setTimeout(function () {
-			// 		document.getElementById("lyrics").innerHTML = alliwantLyrics[1];
-			// 	}, timing)
+			var lyrics = function (song, timing, timing2, timing3) {
 
-			// 	document.getElementById("lyrics").innerHTML = alliwantLyrics[0];
-			// }
+				document.getElementById("lyrics").innerHTML = alliwantLyrics[0];
+
+				// you can convert things into strings. So check out the toString method or other things like that tand then once you have your variable name as a string _then_ you can slice it up and change things about it and then
+
+				setTimeout(function () {
+					document.getElementById("lyrics").innerHTML = alliwantLyrics[1];
+				}, timing)
+
+				setTimeout(function () {
+					document.getElementById("lyrics").innerHTML = alliwantLyrics[2];
+				}, timing + timing2)
+
+				setTimeout(function () {
+					document.getElementById("lyrics").innerHTML = alliwantLyrics[3];
+				}, timing + timing2 + timing3)
+
+			}
 
 			// Roulette click function
 			roulette.addEventListener("click", function()
@@ -176,7 +190,7 @@
 				document.getElementById("title").innerHTML = "";
 
 				// Begins playing lyrics
-				// lyrics(songs[randomNumber] , 2000);
+				lyrics(songs[randomNumber] , alliwantTiming[0], alliwantTiming[1], alliwantTiming[2]);
 
 				//Changes background image
 				roulette.style.backgroundImage = "url(" + imgs[randomNumber] + ")";
