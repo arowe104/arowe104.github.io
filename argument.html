@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Argument HTML</title>
+</head>
+<body>
+	<h1 id="num">Your Number</h1>
+	<button type="button" onClick="findnum()">Find Number</button>
+	<script type="text/javascript">
+		function findnum (number) {
+			number = Math.round(Math.random() * 10);
+			console.log(number);
+			document.getElementById("num").innerHTML = number;
+		}
+	</script>
+</body>
+</html>
