@@ -1,0 +1,18 @@
+{
+  "name": "twitterbot",
+  "version": "1.0.0",
+  "description": "experimental twitter bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "arowe104.github.io"
+  },
+  "author": "alex rowe",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
