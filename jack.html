@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jack</title>
+</head>
+<body>
+	<div id="click" style="background-color: red; width: 100px; height: 100px;"></div>
+	<p id="random">0</p>
+	<p id="last">0</p>
+	<script>
+		var randomNum = 0
+		var lastNum = 11
+		click.addEventListener("click", function() {
+			randomNum = Math.round(Math.random() * 10);
+			if (randomNum = lastNum) {
+				randomNum = "it worked";
+			}
+			lastNum = randomNum
+			click.style.backgroundColor = "blue";
+			setTimeout(function () {
+					click.style.backgroundColor = "red";
+			}, 200);
+			document.getElementById("random").innerHTML = randomNum;
+			document.getElementById("last").innerHTML = lastNum;
+		})
+	</script>
+</body>
+</html>

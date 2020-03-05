@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Name</title>
+	<style>
+		#button {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		#button:hover {
+			transition: 0.1s;
+			width: 110px;
+			height: 110px;
+		} 
+		#wrapper {
+			background-color: green;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+<div id="wrapper">
+	<center>
+		<div id="button"></div>
+		<h1 id="number">1</h1>
+	</center>
+	<script>
+		button.addEventListener("click", function() {
+			var num = Math.round(Math.random() * 10)
+			document.getElementById("number").innerHTML = num;
+		})
+	</script>
+</div>
+</body>
+</html>

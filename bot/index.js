@@ -5,9 +5,9 @@ var T = new Twit({
     access_token:         '1228370535727366147-aq6lGMbKeLm9KyPZAPNuE5NTbFUyjy',
     access_token_secret:  'jccQbVQXevppP1ovdOZxVzxwFDab46Nf2iR7Bv9RtGN0G',
 })
-// T.post('statuses/update', { status: 'coding is cool' }, function(err, data, response) {
-//   console.log(data)
-// })
+T.post('statuses/update', { status: 'youre smoking cap' }, function(err, data, response) {
+  console.log(data)
+})
 // var stream = T.stream('25073877');
 // stream.on('tweet', function (tweet) {
 //     if (users.indexOf(tweet.user.id_str) > -1) {
@@ -17,8 +17,8 @@ var T = new Twit({
 //         })
 //     }
 // })
-function followed(event) {
-  var name = event.source.name;
-  var screenName = event.source.screen_name;
-  console.log('I was followed by: ' + name + ' ' + screenName);
-}
+// function followed(event) {
+//   var name = event.source.name;
+//   var screenName = event.source.screen_name;
+//   console.log('I was followed by: ' + name + ' ' + screenName);
+// }x
