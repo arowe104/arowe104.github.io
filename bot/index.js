@@ -5,7 +5,7 @@ var T = new Twit({
     access_token:         '1228370535727366147-aq6lGMbKeLm9KyPZAPNuE5NTbFUyjy',
     access_token_secret:  'jccQbVQXevppP1ovdOZxVzxwFDab46Nf2iR7Bv9RtGN0G',
 })
-T.post('statuses/update', { status: 'youre smoking cap' }, function(err, data, response) {
+T.post('statuses/update', { status: 'test' }, function(err, data, response) {
   console.log(data)
 })
 // var stream = T.stream('25073877');
