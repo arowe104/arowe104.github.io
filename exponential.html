@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exponential Growth</title>
+	<style>
+		#title {
+			font-family: Arial;
+			font-weight: 100;
+		}
+		#count {
+			font-family: Arial;
+			font-weight: 100;
+		}
+		.exponent {
+			width: 10px;
+			height: 10px;
+			background-color: red;
+			margin: 3px;
+		}
+	</style>
+</head>
+<body>
+
+	<center>
+		<h2 id="title">Exponential Growth!</h2>
+		<p id="count">0</p>
+		<button id="more" onclick="moreDivs()">Add More!</button>
+	</center>
+
+	<div class="exponent"></div>
+
+	<script type="text/javascript">
+
+		var counter = 1
+
+		function moreDivs () {
+
+			for (i = 0; i < counter; i++) {
+				var newDiv = document.createElement("div");
+				newDiv.classList.add("exponent");
+				document.body.appendChild(newDiv);
+				counter++;
+				document.getElementById("count").innerHTML = counter;
+			}
+
+		}
+
+	</script>
+
+</body>
+</html>

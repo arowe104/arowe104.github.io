@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Test</title>
+	<style type="text/css">
+		#data {
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<h2 id="title">What's your first name?</h2>
+		<input type="text" id="data"></body>
+		<button id="submit" onClick="submitData()">Submit!</button>
+		<br>
+		<h2>Previous Data: </h2>
+		<div id="previous"></div>
+		<button id="retrieve" onClick="getData()">Retrieve!</button>
+	</center>
+	<script>
+		function submitData () {
+			var name = document.getElementById("data").value;
+			localStorage.setItem('name', name);
+			alert("Submitted!");
+		}
+
+		function getData () {
+			document.getElementById("previous").innerText = localStorage.getItem('name');
+			console.log("it worked");
+
+
+		}	
+	</script>
+</body>
+</html>
